@@ -1,28 +1,33 @@
-productos = {"codigo" : ["4651", "4651", "4583", "4464", "4375"],
-            "alumno" :["Diego", "David", "Azul", "Sara", "Alex"],
-            "nota" :[]}
-
-listaproductos = []
-totalCompra = 0
-resp = "s"
-while resp == "s":
-    codigoIn = input("Ingresar el codigo del alumno: ")
-    cantidad = int(input("Ingresar la cantidad del producto: "))
+datos = {
+    "codigo": ["001", "002", "003", "004", "005"],
+    "nombre": ["Diego Ramos", "Alexander Lopez", "Sara Villalta", "Thiago Guzman", "David Peña"],}
+listadatos = []
+respuesta = "s"
+while respuesta == "s":
+    codigodato = input("Ingresar el codigo del alumno: ")
+    curso = input("Ingrese el curso: ")
+    nota1 = int(input("Ingresar nota 1 : "))
+    nota2 = int(input("Ingresar nota 2 : "))
+    nota3 = int(input("Ingresar nota 3 : "))
+    nota4 = int(input("Ingresar nota 4 : "))
+    nota5 = int(input("Ingresar nota 5 : "))
     x = 0
-    for i in productos["codigo"]:
-        if i == codigoIn:
-            codigoTemp = i
-            nombreTemp = productos["alumno"][x]
-            precioTemp = ["nota"][x]
-            totalTemp = cantidad
-            totalCompra = totalCompra + totalTemp
-            registro = codigoTemp, nombreTemp, precioTemp, cantidad, totalTemp
-            listaproductos.append(registro)
+    for i in datos["codigo"]:
+        if i == codigodato:
+            codigodato = i
+            nombredato = datos["nombre"][x]
+            promedio = (nota1 + nota2 + nota3 + nota4 + nota5) / 5
+            registro = ["Codigo: " + str(codigodato) + " | " + "Nombre: " + str(nombredato) + " | " + "Curso: " + str(curso) + " | " + "Nota 1: " + str(nota1) + "| " + "Nota 2: " + str(nota2) + " | " + "Nota 3: " + str(nota3) + " | " "Nota 4: " + str(nota4) + " | " "Nota 5: " + str(nota5) + " | " + "Promedio: " + str(promedio)]
+            cadena = "".join(registro)
+            f = open("demofile.txt", "a")
+            f.write("\n" + cadena)
+            f.close()
+
         x += 1
-    resp = input("¿Desea seguir ingresando datos? : s/n ")
+    respuesta = input("¿Desea seguir ingresando datos? : s/n ")
 
-print("Cod Nombre Precio Cant Total")
-for x in listaproductos:
-    print(*x, end="\n")
+print("Datos generales del alumno")
+f = open("demofile.txt")
+print(f.read())
+f.close()
 
-print("El Total de la compra es: ", totalCompra)

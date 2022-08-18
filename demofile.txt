@@ -1,0 +1,2 @@
+
+Codigo: 001 | Nombre: Diego Ramos | Curso: xd | Nota 1: 1| Nota 2: 2 | Nota 3: 3 | Nota 4: 4 | Nota 5: 5 | Promedio: 3.0
